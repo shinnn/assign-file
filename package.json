@@ -1,0 +1,57 @@
+{
+  "name": "assign-file",
+  "version": "0.0.0",
+  "description": "Assign file contents to the target object",
+  "repository": "shinnn/assign-file",
+  "author": {
+    "name": "Shinnosuke Watanabe",
+    "url": "https://github.com/shinnn"
+  },
+  "scripts": {
+    "pretest": "jscs *.js test/test.js && eslint *.js test/test.js",
+    "test": "node test/test.js | tap-spec",
+    "coverage": "istanbul cover --no-default-excludes -x=node_modules/** test/test.js",
+    "coveralls": "${npm_package_scripts_coverage} && istanbul-coveralls"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/shinnn/assign-file/blob/master/LICENSE"
+    }
+  ],
+  "files": [
+    "index.js",
+    "LICENSE"
+  ],
+  "keywords": [
+    "assign",
+    "read",
+    "file",
+    "content",
+    "object",
+    "property",
+    "set",
+    "name",
+    "filename",
+    "path",
+    "async",
+    "asynchronous"
+  ],
+  "dependencies": {
+    "object-assign": "^2.0.0",
+    "set-property-from-file": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^0.10.1",
+    "istanbul": "^0.3.5",
+    "istanbul-coveralls": "^1.0.1",
+    "jscs": "^1.8.1",
+    "nop": "^1.0.0",
+    "tap-spec": "^2.1.1",
+    "tape": "^3.0.3"
+  },
+  "jscsConfig": {
+    "preset": "google",
+    "maximumLineLength": 98
+  }
+}
