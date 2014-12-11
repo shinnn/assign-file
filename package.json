@@ -1,6 +1,6 @@
 {
   "name": "assign-file",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Assign file contents to the target object",
   "repository": "shinnn/assign-file",
   "author": {
