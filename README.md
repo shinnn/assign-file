@@ -33,9 +33,9 @@ assignFile({foo: {bar: 123}}, 'foo/bar/baz.txt', 'utf8', function(err, res) {
 
 ## Installation
 
-[![NPM version](https://badge.fury.io/js/assign-file.svg)](https://www.npmjs.org/package/assign-file)
+[![NPM version](https://badge.fury.io/js/assign-file.svg)](https://www.npmjs.com/package/assign-file)
 
-[Use npm.](https://www.npmjs.org/doc/cli/npm-install.html)
+[Use npm.](https://docs.npmjs.com/cli/install)
 
 ```
 npm install assign-file
