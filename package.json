@@ -39,7 +39,7 @@
   ],
   "dependencies": {
     "object-assign": "^2.0.0",
-    "set-property-from-file": "^1.0.0"
+    "set-property-from-file": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^0.10.1",

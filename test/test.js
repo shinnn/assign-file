@@ -61,15 +61,15 @@ test('assignFile()', function(t) {
     );
   });
 
-  var option = {encoding: Boolean};
+  var option = {processor: Boolean};
 
   assignFile({}, 'index.js', option, function(err, res) {
     t.deepEqual(
       [err, res],
       [null, {index: true}],
-      'should process file content with a function using `encoding` option.'
+      'should process file content with a function using `processor` option.'
     );
-    t.deepEqual(option, {encoding: Boolean}, 'should not modify option object.');
+    t.deepEqual(option, {processor: Boolean}, 'should not modify option object.');
   });
 
   assignFile({}, 'test/fixtures/a.txt', {ext: true}, function(err, res) {
