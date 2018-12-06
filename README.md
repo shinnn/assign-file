@@ -1,19 +1,17 @@
 # assign-file
 
-[![Build Status](https://travis-ci.org/shinnn/assign-file.svg?branch=master)](https://travis-ci.org/shinnn/assign-file)
-[![Build status](https://ci.appveyor.com/api/projects/status/hmau5iy4r0wppsta?svg=true)](https://ci.appveyor.com/project/ShinnosukeWatanabe/assign-file)
+[![npm version](https://badge.fury.io/js/assign-file.svg)](https://www.npmjs.com/package/assign-file)
+[![Build Status](https://travis-ci.com/shinnn/assign-file.svg?branch=master)](https://travis-ci.com/shinnn/assign-file)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/assign-file.svg)](https://coveralls.io/r/shinnn/assign-file)
-[![Dependency Status](https://david-dm.org/shinnn/assign-file.svg)](https://david-dm.org/shinnn/assign-file)
-[![devDependency Status](https://david-dm.org/shinnn/assign-file/dev-status.svg)](https://david-dm.org/shinnn/assign-file#info=devDependencies)
 
 Assign file contents to the target object
 
 ```javascript
-var assignFile = require('assign-file');
+const assignFile = require('assign-file');
 
 // foo/bar/baz.txt (Hello!)
 
-assignFile({foo: {bar: 123}}, 'foo/bar/baz.txt', 'utf8', function(err, res) {
+assignFile({foo: {bar: 123}}, 'foo/bar/baz.txt', 'utf8', (err, res) => {
   if (err) {
     throw err;
   }
@@ -33,9 +31,7 @@ assignFile({foo: {bar: 123}}, 'foo/bar/baz.txt', 'utf8', function(err, res) {
 
 ## Installation
 
-[![NPM version](https://badge.fury.io/js/assign-file.svg)](https://www.npmjs.com/package/assign-file)
-
-[Use npm.](https://docs.npmjs.com/cli/install)
+[Use](https://docs.npmjs.com/cli/install) [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install assign-file
@@ -44,14 +40,14 @@ npm install assign-file
 ## API
 
 ```javascript
-var assignFile = require('assign-file');
+const assignFile = require('assign-file');
 ```
 
 ### assignFile(*target*, *filePath* [, *options*], *callback*)
 
-*target*: `object`  
-*filePath*: `String` (a relative file path)  
-*options*: `Object` or `String` (file encoding)  
+*target*: `Object`  
+*filePath*: `string` (a relative file path)  
+*options*: `Object` or `string` (file encoding)  
 *callback*: `Function`
 
 It asynchronously reads a file, then assigns the file contents to the target object as a property.
@@ -65,22 +61,22 @@ The names of the assigned properties are based on the file path. For example,
 * `foo/../bar/baz.txt` sets `bar.baz` property.
 
 ```javascript
-var assert = require('assert');
-var assignFile = require('assign-file');
+const {deepEqual} = require('assert');
+const assignFile = require('assign-file');
 
-var target = {
+const target = {
   fixtures: {
     foo: 'bar'
   }
 };
 
-assignFile(target, 'fixtures/images/00.jpg', function(err, res) {
+assignFile(target, 'fixtures/images/00.jpg', (err, res) => {
   if (err) {
     throw err;
   }
-  
+
   // Adds fixtures.images['00'] property to the target object.
-  assert.deepEqual(res, {
+  deepEqual(res, {
     fixtures: { // overrides fixtures.foo property
       images: {
         '00': <Buffer ... > // new property
@@ -90,10 +86,10 @@ assignFile(target, 'fixtures/images/00.jpg', function(err, res) {
 });
 ```
 
-All options and callback function can be used in the same way as [set-property-from-file](https://github.com/shinnn/set-property-from-file#options). The only difference from [set-property-from-file](https://github.com/shinnn/set-property-from-file) is that *assign-file* always overwrites existing ones using [`Object.assign()`](http://www.2ality.com/2014/01/object-assign.html).
+All options and callback function can be used in the same way as [set-property-from-file](https://github.com/shinnn/set-property-from-file#options). The only difference from [set-property-from-file](https://github.com/shinnn/set-property-from-file) is that *assign-file* always overwrites existing ones using [`Object.assign()`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign).
 
 ## License
 
-Copyright (c) 2014 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2014 - 2018 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).
